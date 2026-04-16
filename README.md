@@ -1,26 +1,25 @@
 # Claude Code 源码解析
 
-Claude Code 源码深度研究，包括 Foundations/Execution/Infrastructure 三大章节和 23 个子系统的架构分析拆解。
-
----
-
 ![cover](Appendix/cover-banner.png)
+
+基于逆向还原的 `v2.1.88` 源码快照，系统级工程视角重建 Claude Code 的完整 Agent Harness 实现。
+<br>30 篇文章 / 23 个子系统 / 179 张架构图 / 26,000+ 行研究文本。
+
 
 ## 引言
 
-本研究基于 `restored-src v2.1.88` 的源码快照。
-<br><br>重点不在使用说明，而在结构、约束、边界与实现。如果把 Claude Code 只看成"会写代码的命令行工具"，许多设计都会显得过重；如果把它放回到 Agent 运行时系统的语境中，启动链路、上下文管理、权限体系、任务调度、终端渲染与扩展协议之间的关系就会清晰得多。因此采用"结构先于结论"的组织方式：先交代对象、边界与路径，再讨论判断与启示。
+如果把 Claude Code 只看成"会写代码的命令行工具"，许多设计都会显得过重。如果把它放回到 Agent 运行时系统的语境中，启动链路、上下文管理、权限体系、任务调度、终端渲染与扩展协议之间的关系就会清晰得多。本文采用"结构先于结论"的组织方式：先交代对象、边界与路径，再讨论判断与启示。
 
 ## 整体结构
 
 整体采用"两层前言 + 三部正文"的展开方式。
 
-- `总纲A` 是导论，交代社区讨论的背景、问题意识和阅读本研究的理由。
-- `总纲B` 是方法篇，交代理解 Claude Code 时最重要的技术主线，尤其是 harness、context、permissions 与 runtime 的关系。
+- `总纲A` 交代社区讨论的背景、问题意识和阅读本研究的理由。
+- `总纲B` 交代 Claude Code 最重要的技术主线。
 - `Part I Foundations` 处理入口、启动、状态、提示词、主循环、上下文、记忆与缓存。
 - `Part II Execution` 处理工具、安全、权限、配置、命令、Agent、任务、MCP 与 Hooks。
 - `Part III Infrastructure` 处理特性开关、API 适配、渲染引擎与设计系统。
-- 附录收纳扩展点、架构模式、消息附件、LSP 与源码归档。
+- `Appendix` 收纳扩展点、架构模式、消息附件、LSP 与源码归档。
 
 `总纲A` 负责提出问题，`总纲B` 负责给出读法，正文三部则分别展开系统的基础层、执行层与工程层。
 
@@ -38,7 +37,7 @@ Claude Code 源码深度研究，包括 Foundations/Execution/Infrastructure 三
 - [全网技术文章调研与核心认知](总纲A-全网技术文章调研与核心认知.md)
 - [Harness 技术深度分析](总纲B-Claude-Code-Harness技术深度分析.md)
 
-### Part I Foundations
+### Part I Foundations（9 章）
 
 | 章节 | 提要 |
 |------|------|
@@ -52,7 +51,7 @@ Claude Code 源码深度研究，包括 Foundations/Execution/Infrastructure 三
 | [Prompt Cache](Part%20I%20Foundations/08-PromptCache.md) | 缓存边界与成本控制 |
 | [Thinking 与推理](Part%20I%20Foundations/09-Thinking与推理.md) | 推理深度的控制面 |
 
-### Part II Execution
+### Part II Execution（10 章）
 
 | 章节 | 提要 |
 |------|------|
@@ -67,7 +66,7 @@ Claude Code 源码深度研究，包括 Foundations/Execution/Infrastructure 三
 | [MCP](Part%20II%20Execution/18-MCP.md) | 外部工具接入的协议层 |
 | [Hooks](Part%20II%20Execution/19-Hooks.md) | 生命周期自动化与执行边界 |
 
-### Part III Infrastructure
+### Part III Infrastructure（4 章）
 
 | 章节 | 提要 |
 |------|------|
