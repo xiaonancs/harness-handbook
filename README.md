@@ -1,5 +1,7 @@
 # Claude Code 源码解析
 
+> 基于 restored-src v2.1.88 的 Claude Code 全量源码深度研究，覆盖启动链路、上下文管理、权限体系、工具系统、Agent 调度、MCP 协议、终端渲染等 23 个子系统的架构分析与设计拆解。
+
 ![cover](Appendix/cover-banner.png)
 
 ## 引言
