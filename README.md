@@ -1,6 +1,6 @@
 # Claude Code 源码解析
 
-![cover](cover-banner.png)
+![cover](Appendix/cover-banner.png)
 
 ## 引言
 
